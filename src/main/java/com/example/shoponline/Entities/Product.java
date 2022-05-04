@@ -1,14 +1,23 @@
 package com.example.shoponline.Entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.istack.NotNull;
+import lombok.AllArgsConstructor;//Sınıfın Constructorını üretir.Bu Constructor sınıftaki tüm fieldleri parametre olarak almıştır.
 import lombok.Data;
+import lombok.NoArgsConstructor;//Parametresiz Constructor üretir.
+
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.time.Instant;
+import java.util.Date;
+
 
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table(name = "\"Product\"",
         indexes = {
         @Index(name = "fki_categoryId_fk", columnList = "\"categoryId\"")
@@ -17,6 +26,7 @@ import java.time.Instant;
 
 public class Product {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "\"productId\"", nullable = false)
     private Long id;
 
@@ -31,7 +41,7 @@ public class Product {
     private Double price;
 
     @Column(name = "\"createDate\"", nullable = false)
-    private Instant createDate;
+    private Timestamp createDate;
 
     @Column(name = "stock")
     private Long stock;

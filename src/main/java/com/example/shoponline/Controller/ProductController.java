@@ -5,9 +5,7 @@ import com.example.shoponline.Service.Abstract.IProductService;
 import com.example.shoponline.Service.Concrete.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,6 +26,39 @@ public class ProductController {
     private List<Product> getAllProduct(){
      return iProductService.getAllProduct();
     }
+
+    @GetMapping("/getDetailByProductId")
+    @ResponseBody
+    private Product getDetailByProductId(@RequestParam Long ProductId){
+        return iProductService.getDetailByProductId(ProductId);
+    }
+
+    @GetMapping("/getProductsByCategoryId")
+    @ResponseBody
+    private List<Product> getProductsByCategoryId(@RequestParam Long categoryId){
+        return  iProductService.getProductsByCategoryId(categoryId);
+    }
+
+    @GetMapping("/getByProductNameContains/{productName}")
+    private List<Product> getByProductNameContains(@PathVariable String productName){
+        return  iProductService.getByProductNameContains(productName);
+    }
+
+    @GetMapping("/getProductsByActive/{active}")
+    private List<Product> getProductsByActive(@PathVariable boolean active){
+        return  iProductService.getProductsByActive(active);
+    }
+
+    @GetMapping("/getProductByBarcode/{barcode}")
+    private Product getProductByBarcode(@PathVariable String barcode){
+        return  iProductService.getProductByBarcode(barcode);
+    }
+
+    @PostMapping("/addProduct")
+    private Boolean saveProduct(@RequestBody Product newProduct){
+        return  iProductService.saveProduct(newProduct);
+    }
+
 
 
 }
