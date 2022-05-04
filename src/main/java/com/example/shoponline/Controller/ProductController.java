@@ -58,6 +58,17 @@ public class ProductController {
         return  iProductService.saveProduct(newProduct);
     }
 
+    @DeleteMapping("/deleteByProductId/{productId}")
+    private Boolean deleteByProductId(@PathVariable Long productId){
+        return  iProductService.deleteByProductId(productId);
+    }
+
+    @PutMapping("/updateProduct/{productId}")
+    private Product updateProduct(@PathVariable Long productId,@RequestBody Product product){
+        return  iProductService.updateProduct(productId,product);
+    }
+
+
 
 
 }

@@ -13,5 +13,7 @@ public interface IProductService {
     List<Product> getProductsByActive(Boolean active);
     Product getProductByBarcode(String barcode);
     Boolean saveProduct(Product product);
+    Boolean deleteByProductId(Long productId);
+    Product updateProduct(Long productId,Product product);
 
 }
