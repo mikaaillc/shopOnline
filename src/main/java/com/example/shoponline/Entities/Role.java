@@ -1,8 +1,11 @@
 package com.example.shoponline.Entities;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
 @Entity
+@Data
 @Table(name = "\"Roles\"")
 public class Role {
     @Id

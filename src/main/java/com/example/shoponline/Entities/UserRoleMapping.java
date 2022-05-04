@@ -1,8 +1,11 @@
 package com.example.shoponline.Entities;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
 @Entity
+@Data
 @Table(name = "\"UserRoleMapping\"")
 public class UserRoleMapping {
     @Id
@@ -17,28 +20,6 @@ public class UserRoleMapping {
     @JoinColumn(name = "\"roleId\"", nullable = false)
     private Role role;
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
-    }
 
 }
