@@ -44,8 +44,9 @@ public class ProductController {
         return  iProductService.getByProductNameContains(productName);
     }
 
-    @GetMapping("/getProductsByActive/{active}")
-    private List<Product> getProductsByActive(@PathVariable boolean active){
+    @GetMapping("/getProductsByActive/")
+    @ResponseBody
+    private List<Product> getProductsByActive(@RequestParam boolean active){
         return  iProductService.getProductsByActive(active);
     }
 
