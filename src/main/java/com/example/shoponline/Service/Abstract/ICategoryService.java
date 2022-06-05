@@ -9,4 +9,5 @@ public interface ICategoryService {
 
     List<Category> getAllCategory();
     Boolean saveCategory(Category category);
+    List<Object> getCategoryData();
 }

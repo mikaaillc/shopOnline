@@ -34,4 +34,9 @@ public class CategoryService implements ICategoryService {
         }
 
     }
+
+    @Override
+    public List<Object> getCategoryData() {
+        return categoryRepository.aMethodNameOrSomething();
+    }
 }

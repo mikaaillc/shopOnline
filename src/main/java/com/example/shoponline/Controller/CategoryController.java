@@ -6,6 +6,7 @@ import com.example.shoponline.Service.Abstract.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.lang.Object;
 import java.util.List;
 
 @RestController
@@ -28,6 +29,10 @@ public class CategoryController {
     @PostMapping("/addCategory")
     private Boolean saveCategory(@RequestBody Category newCategory){
         return  iCategoryService.saveCategory(newCategory);
+    }
+    @GetMapping("/getCategoryData")
+    private List<Object> getCategoryData(){
+        return iCategoryService.getCategoryData();
     }
 
 }
