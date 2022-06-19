@@ -16,5 +16,8 @@ public class Category {
     @Column(name = "\"categoryName\"")
     private String categoryName;
 
+    @Column(name = "active")
+    private Boolean active;
+
 
 }

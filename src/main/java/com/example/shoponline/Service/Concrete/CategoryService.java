@@ -37,6 +37,12 @@ public class CategoryService implements ICategoryService {
 
     @Override
     public List<Object> getCategoryData() {
-        return categoryRepository.aMethodNameOrSomething();
+        return categoryRepository.getCategoryData();
     }
+
+    @Override
+    public List<Category> getCategoriesByActive(boolean active) {
+         return categoryRepository.getCategoriesByActive(active);
+    }
+
 }

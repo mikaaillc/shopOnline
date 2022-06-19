@@ -25,6 +25,10 @@ public class CategoryController {
     private List<Category> getAllProduct(){
         return iCategoryService.getAllCategory();
     }
+    @GetMapping("/getAllCategoryByActive")
+    private List<Category> getCategoriesByActive(@RequestParam boolean active){
+        return iCategoryService.getCategoriesByActive(active);
+    }
 
     @PostMapping("/addCategory")
     private Boolean saveCategory(@RequestBody Category newCategory){
