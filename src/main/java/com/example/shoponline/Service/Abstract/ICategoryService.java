@@ -11,4 +11,6 @@ public interface ICategoryService {
     List<Object> getCategoryData();
 
     List<Category> getCategoriesByActive(boolean active);
+
+    Category updateCategory(Long id, Category category);
 }

@@ -39,4 +39,9 @@ public class CategoryController {
         return iCategoryService.getCategoryData();
     }
 
+    @PutMapping("/updateCategory/{id}")
+    private Category updateProduct(@PathVariable Long id,@RequestBody Category category){
+        return  iCategoryService.updateCategory(id,category);
+    }
+
 }
